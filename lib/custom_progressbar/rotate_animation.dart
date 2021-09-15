@@ -17,19 +17,19 @@ class _LoadingFillingState extends State<LoadingFilling>
     super.initState();
 
     _controller =
-        AnimationController(duration: Duration(seconds: 3), vsync: this);
+        AnimationController(duration: Duration(seconds: 2), vsync: this);
 
     _animation1 = CurveTween(curve: Curves.ease).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.5, 1.0),
+        curve: const Interval(0.2, 0.9),
       ),
     )..addListener(() => setState(() {}));
 
     _animation2 = Tween(begin: -1.0, end: 1.0).animate(
       CurvedAnimation(
           parent: _controller,
-          curve: const Interval(0.0, 1.0, curve: Curves.linear)),
+          curve: const Interval(0.0, 0.4, curve: Curves.linear)),
     )..addListener(() => setState(() {}));
 
     _controller.repeat();
