@@ -74,6 +74,7 @@ class _LoadingBouncingGridState extends State<LoadingBouncingGrid>
     return Scaffold(
       body: Center(
         child: Container(
+          color: Colors.tealAccent,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
