@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_progressbar/custom_animations/hand_animation.dart';
 import 'package:flutter_custom_progressbar/custom_progressbar/rotate_animation.dart';
 import 'package:flutter_custom_progressbar/custom_progressbar/grid_animation.dart';
 import 'package:flutter_custom_progressbar/custom_progressbar/flip_animation.dart';
@@ -52,6 +53,8 @@ class _HomePageState extends State<HomePage> {
               _textButton(LoadingDoubleFlipping(), 'Flip'),
               Divider(color: Colors.white),
               _textButton(LoadingFilling(), 'Rotate'),
+              Divider(color: Colors.white),
+              _textButton(HandAnimation(), 'Hand Animation'),
             ],
           ),
         ),
@@ -62,17 +65,17 @@ class _HomePageState extends State<HomePage> {
   Widget _textButton(screenName, buttonText) {
     return TextButton(
         onPressed: () {
-          navigateTo(context, screenName);
+          navigateTo(context, screenName, tLeftToRight);
         },
         child: Text(buttonText));
   }
 
-  navigateTo(context, screenName) {
+  navigateTo(context, screenName, transitionStyle) {
     // Navigator.push(
     //   context,
     //   MaterialPageRoute(builder: (context) => screenName),
     // );
-    Navigator.of(context).push(_createRoute(screenName, tFade));
+    Navigator.of(context).push(_createRoute(screenName, transitionStyle));
   }
 
   Route _createRoute(screenName, String transitionType) {
